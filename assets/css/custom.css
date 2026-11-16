@@ -233,11 +233,11 @@ table td {
 
 /* b. „Zebra“ stilius (kas antra eilutė kitokia) */
 table tbody tr:nth-of-type(even) {
-  background-color: #0603ad;
+  background-color: #070047;
 }
 
 /* b. Eilutės :hover efektas užvedus pelę */
 table tbody tr:hover {
-  background-color: #070047;
+  background-color: #0603ad;
   transition: background-color 0.2s ease;
 }
