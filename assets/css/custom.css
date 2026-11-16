@@ -1,0 +1,243 @@
+/* =========================================
+   2. ŠRIFTAI (TYPOGRAPHY)
+   ========================================= */
+/* a. Pakeista pagrindinė svetainės šriftų šeima */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #9fc8f1;
+}
+
+/* b. Atnaujinti antraščių stiliai */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', serif;
+  color: #669aca;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.2rem;
+  border-bottom: 3px solid #e67e22;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* c. Atnaujintas pastraipų stilius */
+p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #95b1e0;
+}
+
+
+/* =========================================
+   3. MYGTUKAI IR NUORODOS
+   ========================================= */
+/* a. Mygtukai ir jų pseudo-klasės */
+button, .btn {
+  background-color: #e67e22;
+  color: #ffffff;
+  border: 2px solid #e67e22;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: transparent;
+  color: #e67e22;
+  cursor: pointer;
+}
+
+button:active, .btn:active {
+  transform: scale(0.96);
+  background-color: #d35400;
+  color: #ffffff;
+}
+
+/* b. Nuorodos */
+a {
+  color: #e67e22;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #b9580c;
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   4. ELEMENTŲ IŠDĖSTYMAS IR TURINIO BLOKAI
+   ========================================= */
+/* a. Tarpų (Margin ir Padding) pakeitimas sekcijose 
+   Pastaba: pasitikrinkite sekcijų ID savo HTML faile (pvz., #about, #resume, #portfolio) */
+#about, #resume, #portfolio {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin-bottom: 30px;
+}
+
+/* b. Turinį talpinančių blokų išvaizdos patobulinimas */
+#about .container, 
+#resume .resume-item, 
+#portfolio .portfolio-wrap {
+  background-color: #000822;
+  border: 1px solid #7db5ff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   5. 2 PASIRINKTŲ KOMPONENTŲ STILIAI
+   ========================================= */
+/* 1-as komponentas: Progreso juostos (Progress Bar) */
+.progress {
+  height: 14px;
+  background-color: #edf2f7;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  background-color: #e67e22 !important;
+  border-radius: 10px;
+}
+
+/* 2-as komponentas: Mygtukas „Į viršų“ (Scroll Top) */
+.scroll-top {
+  background-color: #1a252f !important;
+  border: 2px solid #e67e22;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
+}
+
+.scroll-top:hover {
+  background-color: #e67e22 !important;
+}
+/* =========================================
+   PAPILDOMA UŽDUOTIS: SĄRAŠAI IR LENTELĖ
+   ========================================= */
+
+/* 1. DVIEJŲ SĄRAŠŲ STILIAI
+   Pastaba: jei šablono meniu susigadina, prieš ul ir ol prirašykite 
+   savo sekcijos ID (pvz., #resume ul, #resume ol) */
+
+/* a. Nenumeruotas sąrašas (<ul>) su CSS pseudo-elementu ::before */
+section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+}
+
+section ul li::before {
+  content: "▸"; /* Galite pakeisti į "✔", "★" ar pan. */
+  position: absolute;
+  left: 0;
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* a. Numeruotas sąrašas (<ol>) su CSS skaitikliais (Counters) */
+section ol {
+  list-style: none;
+  counter-reset: mano-skaitiklis;
+  padding-left: 0;
+}
+
+section ol li {
+  counter-increment: mano-skaitiklis;
+  margin-bottom: 10px;
+  padding-left: 35px;
+  position: relative;
+}
+
+section ol li::before {
+  content: counter(mano-skaitiklis) ".";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #070047;
+  color: #fbfbff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* b. Atskiras stilius įdėtiniam sąrašui (Nested List) */
+section ul ul, 
+section ol ul, 
+section ul ol, 
+section ol ol {
+  margin-top: 8px;
+  margin-left: 15px;
+  padding-left: 15px;
+  border-left: 2px dashed #5f9ae2;
+}
+
+section ul ul li::before {
+  content: "◦";
+  color: #2c3e50;
+}
+
+
+/* 2. LENTELĖS STILIAI (<table>) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* a. Antraštinės eilutės (<th>) stilius */
+table thead tr,
+table th {
+  background-color: #1a252f;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* c. Vienodi vidiniai tarpai (Cell Padding) ir lygiavimas centre */
+table th,
+table td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* b. „Zebra“ stilius (kas antra eilutė kitokia) */
+table tbody tr:nth-of-type(even) {
+  background-color: #1789fc;
+}
+
+/* b. Eilutės :hover efektas užvedus pelę */
+table tbody tr:hover {
+  background-color: #070047;
+  transition: background-color 0.2s ease;
+}
