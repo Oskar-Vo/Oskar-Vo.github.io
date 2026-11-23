@@ -472,3 +472,123 @@ table tbody tr:hover {
 .pill-plan { background-color: rgba(245, 158, 11, 0.12); color: #fbbf24; }
 .pill-learn { background-color: rgba(29, 161, 242, 0.12); color: #38bdf8; }
 .pill-done { background-color: rgba(16, 185, 129, 0.12); color: #34d399; }
+
+/* =========================================
+   PAPILDOMA UŽDUOTIS: ANIMACIJOS
+   ========================================= */
+
+/* 1. Animuotas gradientinis fonas „Paslaugų“ skilčiai */
+/* 1. Aiškiai matomas animuotas gradientinis fonas „Paslaugų“ skilčiai */
+/* 1. Garantuotai judantis gradientinis fonas „Paslaugų“ skilčiai */
+#services {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b111e !important;
+  z-index: 1;
+}
+
+#services::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(29, 161, 242, 0.28), transparent 45%),
+              radial-gradient(circle at 70% 60%, rgba(245, 158, 11, 0.22), transparent 45%);
+  animation: moveGradientBg 6s ease-in-out infinite alternate !important;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveGradientBg {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+  50% {
+    transform: translate(10%, 5%) scale(1.15);
+  }
+  100% {
+    transform: translate(-5%, 12%) scale(1.05);
+  }
+}
+
+
+
+/* =========================================
+   2. CSS FIGŪROS IR ANIMACIJOS („APIE“ SKILČIAI)
+   ========================================= */
+
+#about {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.about-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 1 figūra: Apskritimas (Plaukiojimas / Floating) */
+.shape-circle {
+  top: 60px;
+  right: 8%;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 3px solid rgba(29, 161, 242, 0.45);
+  background: radial-gradient(circle, rgba(29, 161, 242, 0.15), transparent 70%);
+  animation: shapeFloat 5s ease-in-out infinite alternate !important;
+}
+
+/* 2 figūra: Trikampis (Sukimasis / Rotating) */
+.shape-triangle {
+  bottom: 70px;
+  left: 6%;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid rgba(245, 158, 11, 0.35);
+  animation: shapeRotate 10s linear infinite !important;
+}
+
+/* 3 figūra: Rombas / Kvadratas (Didėjimas / Scaling) */
+.shape-diamond {
+  top: 45%;
+  right: 4%;
+  width: 55px;
+  height: 55px;
+  border: 2px solid rgba(16, 185, 129, 0.45);
+  background-color: rgba(16, 185, 129, 0.08);
+  animation: shapeScale 4s ease-in-out infinite alternate !important;
+}
+
+@keyframes shapeFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-20px, 30px);
+  }
+}
+
+@keyframes shapeRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shapeScale {
+  0% {
+    transform: rotate(45deg) scale(0.85);
+  }
+  100% {
+    transform: rotate(45deg) scale(1.25);
+  }
+}
