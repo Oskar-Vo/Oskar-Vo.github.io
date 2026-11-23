@@ -571,7 +571,7 @@ table tbody tr:hover {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-20px, 30px);
+    transform: translate(-20px, 60px);
   }
 }
 
